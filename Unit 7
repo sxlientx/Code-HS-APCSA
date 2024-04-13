@@ -1,1 +1,174 @@
+7.3.1 Words that Start With...
+
+public ArrayList<String> wordsThatStartWith(ArrayList<String> words, String letter)
+{
+     ArrayList<String> result = new ArrayList<>();
+    for (String word : words) {
+        if (word.startsWith(letter)) {
+            result.add(word);
+        }
+    }
+    return result;
+}
+
+
+7.3.2 More Numbers Than
+
+public boolean more1s(ArrayList<Integer> numbers)
+{
+     int count1 = 0;
+    int count0 = 0;
+    for (int num : numbers) {
+        if (num == 1) {
+            count1++;
+        } else if (num == 0) {
+            count0++;
+        }
+    }
+    return count1 > count0;
+}
+
+
+7.3.3 Post Start ArrayList
+
+public ArrayList<String> postStart(ArrayList<String> arr)
+{
+    ArrayList<String> result = new ArrayList<>();
+    boolean foundStart = false;
+    for (String value : arr) {
+        if (foundStart) {
+            result.add(value);
+        }
+        if (value.equals("start")) {
+            foundStart = true;
+        }
+    }
+    return result;
+}
+
+
+7.3.4 Max Range
+
+public int maxRange(ArrayList<Integer> arr)
+{
+     int min = Integer.MAX_VALUE;
+    int max = Integer.MIN_VALUE;
+    for (int num : arr) {
+        if (num < min) {
+            min = num;
+        }
+        if (num > max) {
+            max = num;
+        }
+    }
+    return max - min;
+}
+
+
+7.3.5: Sum of 3's
+
+public boolean sumThree(ArrayList<Integer> arr)
+{
+    int sum = 0;
+    for (int num : arr) {
+        if (num == 3) {
+            sum += num;
+        }
+    }
+    return sum >= 9;
+}
+
+7.3.6 EqualSum
+
+public static boolean equalSum(ArrayList<Integer> arr)
+{
+    int totalSum = 0;
+    for (int num : arr) {
+        totalSum += num;
+    }
+
+    if (totalSum % 2 != 0) {
+        return false; // If total sum is odd, it cannot be split into two equal sums
+    }
+
+    int leftSum = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        leftSum += arr.get(i);
+        if (leftSum == totalSum / 2) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+7.3.7 Second Largest Int
+
+public static int secondLargestInt(ArrayList<Integer> arr)
+{
+    if (arr.size() < 2) {
+        throw new IllegalArgumentException("ArrayList must have at least two elements");
+    }
+
+    int largest = Integer.MIN_VALUE;
+    int secondLargest = Integer.MIN_VALUE;
+
+    for (int num : arr) {
+        if (num > largest) {
+            secondLargest = largest;
+            largest = num;
+        } else if (num > secondLargest && num != largest) {
+            secondLargest = num;
+        }
+    }
+
+    return secondLargest;
+}
+
+
+7.3.8 Zeros in the Back
+
+public static ArrayList<Integer> zerosBack(ArrayList<Integer> arr)
+{
+    ArrayList<Integer> result = new ArrayList<>(arr.size());
+    int zeroCount = 0;
+
+    for (int num : arr) {
+        if (num != 0) {
+            result.add(num);
+        } else {
+            zeroCount++;
+        }
+    }
+
+    for (int i = 0; i < zeroCount; i++) {
+        result.add(0);
+    }
+
+    return result;
+}
+
+
+7.3.9: Greater Than Right
+
+public static ArrayList<Integer> greaterRight(ArrayList<Integer> arr)
+{
+     ArrayList<Integer> result = new ArrayList<>();
+    if (arr.isEmpty()) {
+        return result;
+    }
+
+    int maxRight = arr.get(arr.size() - 1);
+    for (int i = arr.size() - 2; i >= 0; i--) {
+        if (arr.get(i) > maxRight) {
+            result.add(arr.get(i));
+        }
+        maxRight = Math.max(maxRight, arr.get(i));
+    }
+
+    Collections.reverse(result);
+    return result;
+}
+
 
