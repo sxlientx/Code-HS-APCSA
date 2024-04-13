@@ -1,1 +1,153 @@
+6.3.1 Search Array
 
+  public int searchArray(int[] arrayToSearch, int intToFind) 
+{
+    for (int i = 0; i < arrayToSearch.length; i++) {
+        if (arrayToSearch[i] == intToFind) {
+            return i; // Return the index if the int is found
+        }
+    }
+    return -1;
+}
+
+
+6.3.2 Max index
+
+public int maxIndex(int[] arr){
+     if (arr == null || arr.length == 0) {
+        return -1; // Return -1 if the array is empty or null
+    }
+
+    int maxIndex = 0; // Initialize the index of the maximum value element
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > arr[maxIndex]) {
+            maxIndex = i; // Update the index of the maximum value element if a greater value is found
+        }
+    }
+
+    return maxIndex;
+}
+
+
+6.3.3 Sum Array
+
+public int sumArray(int[] arrayToSum)
+{
+ int sum = 0; // Initialize sum to 0
+    for (int num : arrayToSum) {
+        sum += num; // Add each element of the array to sum
+    }
+    return sum;
+}
+
+
+6.3.4 Sum Evens of Array
+
+public int sumEvens(int[] arrayToSum)
+{
+ int sum = 0; // Initialize sum to 0
+    for (int num : arrayToSum) {
+        if (num % 2 == 0) {
+            sum += num; // Add the number to sum if it is even
+        }
+    }
+    return sum;
+}
+
+
+6.3.5 Odd Array
+
+public boolean oddArray(int[] arr){
+     for (int num : arr) {
+        if (num % 2 == 0) {
+            return false; // Return false if any element is even
+        }
+    }
+    return true;
+}
+
+
+6.3.6 Int Array to String
+
+public String intArrayToString(int[] intArray)
+{
+StringBuilder sb = new StringBuilder();
+    sb.append("[");
+    for (int i = 0; i < intArray.length; i++) {
+        sb.append(intArray[i]);
+        if (i < intArray.length - 1) {
+            sb.append(", ");
+        }
+    }
+    sb.append("]");
+    return sb.toString();
+}
+
+
+6.3.7 Reverse the array
+
+public String[] reverse(String[] arr){
+    String[] reversedArray = new String[arr.length];
+    for (int i = 0; i < arr.length; i++) {
+        reversedArray[i] = arr[arr.length - 1 - i];
+    }
+    return reversedArray;
+}
+
+
+6.3.8 Bad Apples
+
+public int badApples(String[] apples){
+    int count = 0;
+    for (String apple : apples) {
+        if (containsCapitalLetter(apple)) {
+            count++;
+        }
+    }
+    return count;
+}
+
+private boolean containsCapitalLetter(String str) {
+    for (char c : str.toCharArray()) {
+        if (Character.isUpperCase(c)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+6.3.9 Moving up
+
+public String[] moveUp(String[] arr){
+    String[] shiftedArray = new String[arr.length];
+    shiftedArray[0] = arr[arr.length - 1]; // Wrap around the last element to the first element
+    for (int i = 1; i < arr.length; i++) {
+        shiftedArray[i] = arr[i - 1];
+    }
+    return shiftedArray;
+}
+
+
+6.3.10 Biggest Streak
+
+public int streak(String[] arr) {
+     int maxStreak = 0;
+    int currentStreak = 0;
+    String currentCoin = "";
+
+    for (String coin : arr) {
+        if (!coin.equals(currentCoin)) {
+            currentCoin = coin;
+            currentStreak = 1;
+        } else {
+            currentStreak++;
+        }
+
+        if (currentStreak > maxStreak) {
+            maxStreak = currentStreak;
+        }
+    }
+
+    return maxStreak;
+}
