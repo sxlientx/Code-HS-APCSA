@@ -1,1 +1,32 @@
+5.3.1 Constructors
 
+public class Game
+{
+    private String name;
+    private int year;
+    
+    // Add constructor here. Constructor should take name then year
+    public Game(String name, int year) {
+        this.name = name;
+        this.year = year;
+    }
+    
+    
+    public String toString(){
+        return name + " was released in " + year + ".";
+    }
+    
+}
+public class GameTester
+{
+    public static void main(String[] args)
+    {
+        Game mario = new Game("Mario Maker 2", 2019);
+        
+        Game luigi = new Game("Luigi's Mansion 3", 2019);
+        
+        // Print both games out using the toString
+         System.out.println(mario.toString());
+        System.out.println(luigi.toString());
+    }
+}
