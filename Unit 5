@@ -30,8 +30,8 @@ public class GameTester
         System.out.println(luigi.toString());
     }
 }
-$${\color{5.3.2 More Constructors}Red}$$
-$${\color{red}Welcome \space \color{lightblue}To \space \color{lightgreen}Github}$$ :
+
+5.3.2 More Constructors
 
 public class Game {
      private String name;
@@ -111,5 +111,278 @@ public class GameTester
 
         System.out.println("Checking to create 4 parameter Game\t" + game3);
         System.out.println("Expected result:\nRocket League was released in 2019.");
+    }
+}
+
+5.3.3 Getters and Setters
+
+public class Picture
+{
+    private String name;
+    private String date;
+    
+    public Picture(String theName, String theDate){
+        name = theName;
+        date = theDate;
+    }
+    
+    // Getter and setter methods for name
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String newName) {
+        name = newName;
+    }
+
+    // Getter and setter methods for date
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String newDate) {
+        date = newDate;
+    }
+}
+public class PictureTester
+{
+    public static void main(String[] args)
+    {
+        // Create a Picture object
+        Picture picture = new Picture("Sunset", "2024-04-12");
+
+        // Update the object using setter methods
+        picture.setName("Sunrise");
+        picture.setDate("2024-04-13");
+
+        // Print the object using getter methods
+        System.out.println("Name: " + picture.getName());
+        System.out.println("Date: " + picture.getDate());
+    }
+}
+
+5.3.4 Methods
+
+public class Circle
+{
+    private double radius;
+    
+    public Circle(double theRadius){
+        radius = theRadius;
+    }
+    
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+
+    public double perimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+public class ShapeTester
+{
+    public static void main(String[] args)
+    {
+        // Create a circle with radius 5
+        Circle circle = new Circle(5);
+
+        // Print the perimeter and area of the circle
+        System.out.println("Perimeter: " + circle.perimeter());
+        System.out.println("Area: " + circle.area());
+    }
+}
+
+5.3.5 More Methods
+
+public class Circle
+{
+    private double radius;
+    
+    public Circle(double theRadius){
+        radius = theRadius;
+    }
+    
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+
+    public double perimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    public double areaDifference(double otherRadius) {
+        Circle otherCircle = new Circle(otherRadius);
+        return this.area() - otherCircle.area();
+    }
+
+    public double perimeterDifference(double otherRadius) {
+        Circle otherCircle = new Circle(otherRadius);
+        return this.perimeter() - otherCircle.perimeter();
+    }
+}
+public class ShapeTester
+{
+    public static void main(String[] args)
+    {
+        // Create a circle with radius 4
+        Circle circle = new Circle(4);
+
+        // Test areaDifference and perimeterDifference with a circle of radius 3
+        double otherRadius = 3;
+        System.out.println("Area Difference with radius " + otherRadius + ": " + circle.areaDifference(otherRadius));
+        System.out.println("Perimeter Difference with radius " + otherRadius + ": " + circle.perimeterDifference(otherRadius));
+    }
+}
+
+5.3.6 Comments
+
+public class Hello
+{
+    /**
+     * This program prints out two messages.
+     * The first message asks if the reader is ready for the AP Test.
+     * The second message mentions that May is approaching.
+     */
+    public static void main(String[] args)
+    {
+        // Print out a message asking if the reader is ready for the AP Test
+        System.out.println("Are you ready for the AP Test?");
+        
+        // Print out a message mentioning that May is approaching
+        System.out.println("May is just around the corner!");
+    }
+}
+
+5.3.7 Static Methods
+
+public class Conversion
+{
+    public static double gallonsToPints(double gallons) {
+        return gallons * 8; // 1 gallon = 8 pints
+    }
+
+    public static double feetToInches(double feet) {
+        return feet * 12; // 1 foot = 12 inches
+    }
+}
+public class ConversionTester
+{
+    public static void main(String[] args)
+    {
+        double gallons = 3.5;
+        double feet = 2.0;
+
+        // Test gallonsToPints
+        System.out.println(gallons + " gallons is equal to " + Conversion.gallonsToPints(gallons) + " pints");
+
+        // Test feetToInches
+        System.out.println(feet + " feet is equal to " + Conversion.feetToInches(feet) + " inches");
+    }
+}
+
+
+5.3.8 Local Variables
+
+public class Variables
+{
+    // Static variable with a default value of 10
+    private static int a = 10;
+
+    public static void main(String[] args)
+    {
+        // Print the result of addFive(12)
+        System.out.println("addFive(12) --> " + addFive(12)); // Should print 17
+
+        // Print the result of addFive() using the default value
+        System.out.println("addFive() --> " + addFive()); // Should print 15
+    }
+
+    public static int addFive(int a){
+        return a + 5;
+    }
+
+    public static int addFive(){
+        return a + 5;
+    }
+}
+
+5.3.9 Using This
+
+public class Car
+{
+    private String make;
+    private String model;
+    
+    public Car(String make, String model){
+        this.make = make;
+        this.model = model;
+    }
+    
+    public String getMake(){
+        return make;
+    }
+    
+    public void setMake(String make){
+        this.make = make;
+    }
+    
+    public String getModel(){
+        return model;
+    }
+    
+    public void setModel(String model){
+        this.model = model;
+    }
+}
+public class CarTester
+{
+    public static void main(String[] args)
+    {
+        // Make sure you leave these lines of code. You can add additional lines
+        // for testing.
+        Car tesla = new Car("Tesla", "Model 3");
+        
+        tesla.setModel("Model S");
+        System.out.print(tesla.getMake());
+        System.out.print(" ");
+        System.out.print(tesla.getModel());
+    }
+}
+
+5.3.10 Method Decomposition
+
+import java.util.Scanner;
+
+public class SavingsSim
+{
+    public static void main(String[] args)
+    {
+        double balance = 10000;
+        double years = 10;
+
+        double interest = getInterest();
+        printResults(0, balance, interest);
+        processYears(10, balance, interest);
+    }
+
+    public static double getInterest() {
+        Scanner input = new Scanner(System.in);
+        System.out.println( "Please enter an interest rate as a decimal (i.e. 5% = 0.05): ");
+        double interest = input.nextDouble();
+        return interest;
+    }
+
+    public static void printResults(int year, double balance, double interest) {
+        System.out.println("Year: " + year);
+        System.out.println("Balance: $" + balance);
+        System.out.println("Interest Rate: " + interest * 100 + "%");
+        System.out.println();
+    }
+
+    public static void processYears(int years, double balance, double interest) {
+        for (int i = 1; i <= years; i++){
+            balance *= (1 + interest);
+            printResults(i, balance, interest);
+        }
     }
 }
