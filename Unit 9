@@ -184,3 +184,56 @@ public class FoodTester
 }
 
 9.3.9
+
+public class Book
+{
+    private String name;
+    private int pages;
+    
+    public Book(String name, int pages){
+        this.name = name;
+        this.pages = pages;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public int getPages(){
+        return pages;
+    }
+}
+
+public class BookTester
+{
+    public static void main(String[] args)
+    {
+        Book hunger = new Book("Hunger Games", 374);
+        Book captain = new ComicBook("Captain America", 48, "Marvel");
+        
+        System.out.println("Title: " + hunger.getName());
+        System.out.println("Page Count: " + hunger.getPages());
+        
+        System.out.println("Title: " + captain.getName());
+        System.out.println("Page Count: " + captain.getPages());
+        System.out.println("Series: " + ((ComicBook) captain).getSeries());
+    }
+}
+public class ComicBook extends Book
+{
+    private String series;
+    
+    public ComicBook(String name, int pages, String series){
+        super(name, pages);
+        this.series = series;
+    }
+    
+    @Override
+    public String getName(){
+        return series + ": " + super.getName();
+    } 
+    
+    public String getSeries(){
+        return series;
+    }
+}
