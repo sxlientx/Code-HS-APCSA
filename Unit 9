@@ -58,7 +58,7 @@ public class Tester
 
 
 
-9.3.4
+9.3.5
 
 public class Student extends Person
 {
@@ -75,3 +75,112 @@ public class Student extends Person
     }
 }
 
+
+9.3.6
+
+public class Car
+{
+    private String type;
+    private double mpg;
+    
+    public Car(String type, double mpg){
+        this.type = type;
+        this. mpg = mpg;
+    }
+    
+    public double getMPG(){
+        return mpg;
+    }
+}
+
+public class CarTester
+{
+    public static void main(String[] args)
+    {
+        Sedan clarity = new Sedan(52.7);
+        Sedan bmw = new Sedan(22.6);
+        
+        System.out.println(clarity.efficient());
+        System.out.println(bmw.efficient());
+    }
+}
+public class Sedan extends Car {
+    public Sedan(double mpg) {
+        super("Sedan", mpg);
+    }
+
+    public boolean efficient() {
+        return super.getMPG() > 30.0;
+    }
+}
+
+9.3.7
+
+public class Phone
+{
+    private boolean isSmart;
+    
+    public Phone(){
+        isSmart = false;
+    }
+    
+    public Phone(boolean isSmart){
+        this.isSmart = isSmart;
+    }
+    
+    public boolean smart(){
+        return isSmart;
+    }
+}
+public class PhoneTester {
+    public static void main(String[] args) {
+        Phone wall = new Phone();
+        Phone desk = new Phone(true);
+        SmartPhone iphone = new SmartPhone();
+
+        printSmart(wall);
+        printSmart(desk);
+        printSmart(iphone);
+    }
+
+    // Overloaded method for Phone objects
+    public static void printSmart(Phone phone) {
+        System.out.println("false");
+    }
+
+    // Overloaded method for SmartPhone objects
+    public static void printSmart(SmartPhone smartphone) {
+System.out.println("true");    }
+}
+public class SmartPhone extends Phone
+{
+    public SmartPhone(){
+        super(true);
+    }
+}
+
+9.3.8
+import java.util.*;
+
+public class FoodTester
+{
+    public static void main(String[] args)
+    {
+        Food pizza = new Food("Pizza", 250);
+        Fruit orange = new Fruit("Orange", 120, "orange");
+        Meat hamburger = new Meat("Burger", 230, true);
+        
+        // Create an ArrayList and add all three onbject to it
+         ArrayList<Food> foods = new ArrayList<>();
+        foods.add(pizza);
+        foods.add(orange);
+        foods.add(hamburger);
+
+        for (Food food : foods) {
+            System.out.println(food);
+        }
+        // Loop through the array and print out the objects using the toString
+    }
+}
+
+9.3.9
