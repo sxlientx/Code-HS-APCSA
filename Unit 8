@@ -1,0 +1,176 @@
+8.3.1
+
+public String needleInHaystack(String[][] haystack) 
+{
+for (int i = 0; i < haystack.length; i++) {
+        for (int j = 0; j < haystack[i].length; j++) {
+            if ("needle".equals(haystack[i][j])) {
+                return "row: " + i + ", column: " + j;
+            }
+        }
+    }
+    return "none";
+}
+
+
+8.3.2
+public static int sumAll(int[][] arr)
+{int sum = 0;
+    for (int i = 0; i < arr.length; i++) {
+        for (int j = 0; j < arr[i].length; j++) {
+            sum += arr[i][j];
+        }
+    }
+    return sum;}
+
+8.3.3
+
+public static boolean isSquare(int[][] arr)
+{
+     int numRows = arr.length;
+    if (numRows == 0) {
+        // Empty array is not considered square
+        return false;
+    }
+    int numColumns = arr[0].length;
+    return numRows == numColumns;
+}
+
+8.3.4
+
+public static int[][] invert(int[][] arr)
+{
+int numRows = arr.length;
+    int numCols = arr[0].length;
+
+    // Create a new array to hold the inverted result
+    int[][] invertedArray = new int[numCols][numRows];
+
+    // Loop through the original array and populate the inverted array
+    for (int i = 0; i < numRows; i++) {
+        for (int j = 0; j < numCols; j++) {
+            invertedArray[j][i] = arr[i][j];
+        }
+    }
+
+    return invertedArray;
+
+}
+
+8.3.5
+
+public static int[][] multiplicationTable(int size) {
+    int[][] table = new int[size][size];
+
+    // Populate the table
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            table[i][j] = (i + 1) * (j + 1);
+        }
+    }
+
+    return table;
+}
+
+8.3.6
+
+public static boolean hasValue(int[][] arr, int value, int row)
+{
+    if (row < 0 || row >= arr.length) {
+        return false;
+    }
+    
+    // Iterate over the specified row
+    for (int j = 0; j < arr[row].length; j++) {
+        if (arr[row][j] == value) {
+            return true; // Value found in the row
+        }
+    }
+    
+    return false;
+}
+
+
+8.3.7
+
+public static int[][] reverse(int[][] arr)
+{
+    int numRows = arr.length;
+    int numCols = arr[0].length;
+    
+    int[][] reversedArray = new int[numRows][numCols];
+    
+    for (int i = 0; i < numRows; i++) {
+        for (int j = 0; j < numCols; j++) {
+            reversedArray[i][j] = arr[numRows - 1 - i][numCols - 1 - j];
+        }
+    }
+
+    return reversedArray;
+}
+
+8.3.8
+
+public static int max(int[][] arr)
+{
+    if (arr.length == 0 || arr[0].length == 0) {
+        throw new IllegalArgumentException("Empty array");
+    }
+
+    int maxVal = arr[0][0]; 
+
+    for (int[] row : arr) {
+        for (int val : row) {
+            if (val > maxVal) {
+                maxVal = val;
+            }
+        }
+    }
+
+    return maxVal;
+}
+
+8.3.9
+
+public static String[][] createArray(int row, int col)
+{
+    // Check if the dimensions are valid
+    if (row <= 0 || col <= 0) {
+        throw new IllegalArgumentException("Invalid dimensions");
+    }
+
+    // Create a new 2D array of the specified size
+    String[][] newArray = new String[row][col];
+
+    // Populate the array with empty strings
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            newArray[i][j] = "";
+        }
+    }
+
+    return newArray;
+}
+
+8.3.10
+
+public static int[][] split(int[][] arr, int row, int col)
+{
+      // Check if the provided row and column indices are within bounds
+    if (row < 0 || row >= arr.length || col < 0 || col >= arr[0].length) {
+        throw new IllegalArgumentException("Invalid row or column index");
+    }
+
+    // Create a new 2D array to hold the portion of the original array
+    int[][] portion = new int[row + 1][col + 1];
+
+    // Populate the portion array with elements up to the specified row and column
+    for (int i = 0; i <= row; i++) {
+        for (int j = 0; j <= col; j++) {
+            portion[i][j] = arr[i][j];
+        }
+    }
+
+    return portion;
+}
+
