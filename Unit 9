@@ -1,0 +1,77 @@
+9.3.4
+
+public class Building
+{
+    private double length;
+    private double width;
+    
+    public Building(double l, double w){
+        length = l;
+        width = w;
+    }
+    
+    public Building(){
+        length = 0;
+        width = 0;
+    }
+    public double getSize(){
+        return length * width;
+    }
+}
+public class House extends Building
+{
+    private int bedrooms;
+    
+    public House(int numBedrooms){
+        bedrooms = numBedrooms;
+    }
+     public double getSize() {
+        return bedrooms;
+    }
+    // Enter your code here
+}
+public class School extends Building
+{
+   private int numClasses;
+   
+   public School(int classrooms){
+       numClasses = classrooms;
+   }
+    public double getSize() {
+        return numClasses;
+    }
+   // Enter your code here
+}
+public class Tester
+{
+    public static void main(String[] args)
+    {
+        Building building = new Building(200, 300);
+        School school = new School(85);
+        House house = new House(4);
+        
+        System.out.println(building.getSize());
+        System.out.println(school.getSize());
+        System.out.println(house.getSize());
+    }
+}
+
+
+
+9.3.4
+
+public class Student extends Person
+{
+    private int grade;
+    
+    public Student(String name, int grade){
+        super(name);
+        this.grade = grade;
+    }
+    
+    // Enter your code here
+    public String toString() {
+        return super.toString() + "\nGrade: " + grade;
+    }
+}
+
