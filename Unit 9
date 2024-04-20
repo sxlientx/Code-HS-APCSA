@@ -1,3 +1,39 @@
+9.3.2
+
+public class KitchenTable extends Table
+{
+    private int seats;
+     public KitchenTable(double height, int seats) {
+        super("Kitchen", height);
+        this.seats = seats;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+    // Add a constructor here
+    
+}
+public class TableTester
+{
+    public static void main(String[] args)
+    {   
+        // Make sure you can create the objects without your program crashing! 
+        // Create a table object
+        Table table = new Table("Dining", 3.5);
+
+        // Create a kitchen table object
+        KitchenTable kitchenTable = new KitchenTable(2.5, 4);
+
+        System.out.println("Table name: " + table.getName());
+        System.out.println("Table height: " + table.getHeight());
+        System.out.println("Kitchen Table name: " + kitchenTable.getName());
+        System.out.println("Kitchen Table height: " + kitchenTable.getHeight());
+        System.out.println("Kitchen Table seats: " + kitchenTable.getSeats());
+        // Create a kitchen table object 
+    }
+}
+
 9.3.4
 
 public class Building
